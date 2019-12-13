@@ -1,0 +1,35 @@
+import string
+
+word = 'coconut'
+count = ['*']*7
+def hangman(c, count):
+    if len(c) == 1:
+        for i in range(len(word)):
+            if c == word[i]:
+                count[i] = c
+
+        return count
+    else:
+        if word == c:
+            return True
+        else:
+            return False
+    
+while True:
+    c = input("Let play Hangman! Please enter one letter: ")
+    if len(c) == 1:
+        count = hangman(c,count)
+        print(*count)
+        if word == (''.join(count)):
+            print("Yay! You got it right!")
+            break
+       
+    elif len(c)==len(word):
+        t = hangman(c,count)
+        if t == True:
+            print(c)
+            break
+        else:
+            print("Sorry, the input is wrong")
+    else:
+        print("Please enter one letter or the entire word")
