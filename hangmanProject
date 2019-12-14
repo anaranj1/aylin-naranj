@@ -1,5 +1,6 @@
 import string
 
+#Here is the word for the game 
 word = 'coconut'
 count = ['*']*7
 def hangman(c, count):
@@ -16,20 +17,22 @@ def hangman(c, count):
             return False
     
 while True:
-    c = input("Let play Hangman! Please enter one letter: ")
+    c = input("Let's play Hangman! Please enter one letter: ")
     if len(c) == 1:
         count = hangman(c,count)
         print(*count)
         if word == (''.join(count)):
+            #If you get it right, this is your output
             print("Yay! You got it right!")
             break
        
-    elif len(c)==len(word):
+    elif len(c) == len(word):
         t = hangman(c,count)
         if t == True:
             print(c)
             break
         else:
-            print("Sorry, the input is wrong")
+            #When you your input isn't valid, this is your output 
+            print("Sorry, the input is wrong.")
     else:
         print("Please enter one letter or the entire word")
